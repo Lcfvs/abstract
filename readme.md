@@ -17,7 +17,7 @@ class AbstractApplication extends Abstract {
     {router, renderer, server, ...rest},
     requirements = {}
   ) {
-    super(AbstractApplication, {renderer, router, server, ...rest}, {
+    super(constructor, {renderer, router, server, ...rest}, {
       renderer: Object,
       router: Object,
       server: Object,
