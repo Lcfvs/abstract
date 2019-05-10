@@ -12,11 +12,16 @@ A simple base abstract class to extend, with immutables & type forcing
 import Abstract from '@lcf.vs/abstract'
 
 class AbstractApplication extends Abstract {
-  constructor (router, renderer, server) {
-    super(AbstractApplication, {renderer, router, server}, {
+  constructor (
+    constructor = AbstractApplication,
+    {router, renderer, server, ...rest},
+    requirements = {}
+  ) {
+    super(AbstractApplication, {renderer, router, server, ...rest}, {
       renderer: Object,
       router: Object,
-      server: Object
+      server: Object,
+      ...requirements
     })
   }
 }
