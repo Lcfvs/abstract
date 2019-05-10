@@ -14,6 +14,10 @@ function has ([name, type]) {
   }
 }
 
+function all (requirements) {
+  Object.entries(requirements).forEach(has, this)
+}
+
 function isPrototypeOf (constructor, value) {
   return constructor.prototype.isPrototypeOf(value) && !Number.isNaN(value)
 }
@@ -26,7 +30,7 @@ function set ([name, value]) {
 }
 
 export default class Abstract {
-  constructor (constructor = Abstract, immutables = {}, requirements = {}) {
+  constructor (constructor = Abstract, immutables = {}, ...requirements) {
     const name = constructor.name
 
     if (this.constructor === constructor) {
@@ -38,6 +42,6 @@ export default class Abstract {
     }
 
     Object.entries(immutables).forEach(set, this)
-    Object.entries(requirements).forEach(has, this)
+    requirements.slice().reverse().forEach(all, this)
   }
 }

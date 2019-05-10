@@ -15,13 +15,12 @@ class AbstractApplication extends Abstract {
   constructor (
     constructor = AbstractApplication,
     {router, renderer, server, ...rest},
-    requirements = {}
+    ...requirements
   ) {
-    super(constructor, {renderer, router, server, ...rest}, {
+    super(constructor, {renderer, router, server, ...rest}, ...requirements, {
       renderer: Object,
       router: Object,
-      server: Object,
-      ...requirements
+      server: Object
     })
   }
 }
@@ -33,7 +32,12 @@ class Application extends AbstractApplication {
 ## <a name="api">API</a>
 
 ```js
-Abstract(constructor = Abstract, immutables = {}, requirements = {})
+/**
+* @param {Abstract=Abstract} constructor
+* @param {Object=} immutables
+* @param {...Object} requirements
+*/
+Abstract(constructor = Abstract, immutables = {}, ...requirements)
 ```
 
  * `constructor`: The current abstract constructor 
