@@ -31,7 +31,7 @@ function set ([name, value]) {
 
 export default class Abstract {
   constructor (constructor = Abstract, immutables = {}, ...requirements) {
-    const name = constructor.name
+    const name = this.constructor.name
 
     if (this.constructor === constructor) {
       error(`Abstract class "${name}" cannot be instantiated directly`)
