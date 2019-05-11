@@ -26,6 +26,9 @@ class AbstractApplication extends Abstract {
 }
 
 class Application extends AbstractApplication {
+  constructor (router, renderer, server, rest = {}) {
+    super(Application, {router, renderer, server, ...rest})
+  }
 }
 ```
 
