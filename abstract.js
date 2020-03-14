@@ -18,8 +18,14 @@ function all (requirements) {
   Object.entries(requirements).forEach(has, this)
 }
 
-function isPrototypeOf (constructor, value) {
-  return constructor.prototype.isPrototypeOf(value) && !Number.isNaN(value)
+function isPrototypeOf (constructor, value = null) {
+  const type = typeof value
+
+  return value !== null
+    && (
+      (type === 'object' && constructor.prototype.isPrototypeOf(value))
+      || (value.constructor === constructor && (type !== 'number' || !Number.isNaN(value)))
+    )
 }
 
 function set ([name, value]) {

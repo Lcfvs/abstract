@@ -1,6 +1,6 @@
 {
   "name": "@lcf.vs/abstract",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A simple base abstract class, in JavaScript, to extend with immutables & type forcing",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
